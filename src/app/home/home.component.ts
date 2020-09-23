@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     this.uploadService
       .upload(formData)
       .pipe(
-        tap(console.log),
+        // tap(console.log),
         map(event => {
           switch (event.type) {
             case HttpEventType.UploadProgress:
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
       )
       .subscribe((event: any) => {
         if (typeof event === "object") {
-          console.log('sub', event);
+          // console.log('sub', event);
           file.uploadedUrl = event.body.link;
         }
       });
