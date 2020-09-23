@@ -1,0 +1,17 @@
+<div style="text-align:center; margin-top: 100px; ">
+	<mat-card style="margin-top:10px; width: 80%;">
+		<mat-card-content>
+			<ul>
+				<li *ngFor="let file of files">
+					<mat-progress-bar [value]="file.progress"></mat-progress-bar>
+					<p id="file-label">{{ file.data.name }}</p>
+          <img *ngIf="file.uploadedUrl" [src]="file.uploadedUrl" alt="{{ file.data.name }}">
+				</li>
+			</ul>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-button color="warn" (click)="onClick()">Upload</button>
+		</mat-card-actions>
+	</mat-card>
+	<input type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="multiple" accept="image/*" style="display:none;" />
+  </div>
